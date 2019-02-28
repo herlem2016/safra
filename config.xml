@@ -8,6 +8,6 @@
         Softronel Team
     </author>
 	<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
-    <content src="index.htm" />
+    <content src="index.html" />
     <access origin="*" />
 </widget>
