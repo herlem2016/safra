@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<widget id="com.org.softronel" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Electronivel-11R</name>
+    <description>
+        Electronivel
+    </description>
+    <author email="info@softronel.com.mx" href="softronel.com.mx">
+        Softronel Team
+    </author>
+	<gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
