@@ -5,13 +5,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>SAFRA</title>
     <link href="css/terceros.css" rel="stylesheet" />
+
     <style>
         html,body{margin:0px;font-family:Verdana;background-color:#808080;padding:0px;height:100%;overflow:hidden;}
         button{cursor:pointer;}
         .login{height:100% !important;position:absolute;background-color:#808080;overflow:hidden;width:100%;}
         .pantalla{border-bottom:1px solid #b6ff00;background-color:#eee;position:absolute;left:0px;top:34px;width:100%;}        
-        .login fieldset{width:80%;border-radius:4px;margin:auto;border:2px solid #0094ff;margin-top:20%;background-color:#eee;}
-        .login fieldset legend{width:40%;margin:auto;border:2px solid #0094ff;padding:5px;border-radius:4px;background-color:#fff;}
+        .login fieldset{width:80%;border-radius:4px;margin:auto;border:2px solid #0094ff;background-color:#eee;display:block;}
+        .login fieldset legend{width:30%;margin:auto;border:2px solid #0094ff;padding:5px;border-radius:4px;background-color:#fff;}
         .login fieldset img{width:100%;}
         .login fieldset input{width:60%;margin:auto;display:block;padding:10px;padding-left:50px;margin-bottom:25px;margin-top:25px;background-size:30px;background-image:url(img/Titan_Company_Logo.png);background-repeat:no-repeat;background-position-x:5px;background-position-y:center;border:1px solid #0094ff;border-radius:4px;}
         .login fieldset button{width:80%;margin:auto;display:block;padding:10px;margin-bottom:25px;margin-top:25px;}
@@ -171,13 +172,11 @@
         .edicion table.lista-files textarea{height:50px;}
         .si{color:#00ce0a !important;}
         .no{color:#ff0027 !important;}
-        .pantalla-2,.pantalla-3,.pantalla-4,.scrollable{overflow:auto;clear:both;}
+        .pantalla-2,.pantalla-3,.pantalla-4,.scrollable,.scrollable-2{overflow:auto;clear:both;margin:0px;}
     </style>
 
-    <style id="css-sizes">
 
-    </style>
-
+    <style id="css-sizes"></style>
     <script src="jquery-1.11.3.min.js"></script>
     <script>
 
@@ -216,7 +215,7 @@
                 }
             }
             for (var k = 0; k < funcionesEnPantalla.btns.length; k++) {
-                document.getElementById(funcionesEnPantalla.btns[k].getAttribute("control")).style.display = "none"; 
+                document.getElementById(funcionesEnPantalla.btns[k].getAttribute("control")).style.display = "none";
             }
             document.getElementById("mostrar-opciones").style.display = "block";
             document.getElementById("ocultar-opciones").style.display = "none";
@@ -234,7 +233,7 @@
 
         function GetValor(domXML, tag) {
             var valor = "";
-            try { valor = domXML.getElementsByTagName(tag)[0].childNodes[0].nodeValue; } catch (e) { }    
+            try { valor = domXML.getElementsByTagName(tag)[0].childNodes[0].nodeValue; } catch (e) { }
             return valor;
         }
 
@@ -291,13 +290,17 @@
         }
 
         function EstablecerDimensiones() {
-            var heightApp = parseInt(window.innerHeight - 40, 10) + 5;
             var style = document.getElementById("css-sizes");
-            style.innerHTML = ".pantalla {height:" + heightApp + "px !important;}";
-            style.innerHTML += ".pantalla-2 {height:" + (heightApp - 64) + "px !important;}";
-            style.innerHTML += ".pantalla-3 {height:" + (heightApp - 27) + "px !important;}";
-            style.innerHTML += ".pantalla-4 {height:" + (heightApp - 27) + "px !important;}";
-            style.innerHTML += ".scrollable {height:" + (heightApp - 142) + "px !important;}";
+            var styleStr = ".login fieldset{height:" + parseInt(0.7 * window.innerHeight, 10) + "px !important;margin-top:" + parseInt(0.10 * window.innerHeight,10) + "px;}";
+            var heightApp = parseInt(window.innerHeight - 40, 10) + 5;
+            styleStr += ".pantalla {height:" + heightApp + "px !important;}";
+            styleStr += ".pantalla-2 {height:" + (heightApp - 64) + "px !important;}";
+            styleStr += ".pantalla-3 {height:" + (heightApp - 27) + "px !important;}";
+            styleStr += ".pantalla-4 {height:" + (heightApp - 27) + "px !important;}";
+            styleStr += ".scrollable {height:" + (heightApp - 132) + "px !important;}";
+            styleStr += ".scrollable-2 {height:" + (heightApp - 168) + "px !important;}";
+
+            style.innerHTML = styleStr;
         }
 
         function SeleccionarConceptoPagar(objeto){
@@ -335,7 +338,7 @@
             document.getElementById(id).style.display = "block";
         }
 
-        function PantallaMostrar(id,tagName){           
+        function PantallaMostrar(id,tagName){
             var pants = document.getElementsByTagName(tagName);
             for (var i = 0; i < pants.length; i++){
                 pants[i].style.display = "none";
@@ -1151,8 +1154,7 @@
                     <div class="busqueda"><input placeholder="Buscar" /></div>
                     <ul class="lista seleccionable scrollable" style="width:100%;">
                         <li class="item" onclick="Mostrar('lista-erogacion','detalle-erogacion');"> 
-                            <div class="agregar" id="edicion-erogacion" ><button clave_funcion="8" control="pagar-erogacion" onclick="Mostrar('lista-licitacion','p-edicion-licitacion');;" >Agregar participante</button></div>      
-                            <div class="edicion"><label>Propuestas</label></div>
+                            <div class="agregar" id="edicion-erogacion" ><button clave_funcion="8" control="pagar-erogacion" onclick="Mostrar('lista-licitacion','p-edicion-licitacion');;" >Agregar participante</button></div>                                  
                             <span class="t-1">Compra e instalación de juegos toboganes, para niños de hasta 12 años.</span> 
                             <span class="t-2">18-Enero-2019 7:00 pm</span>
                             <table class="transparente">
@@ -1261,7 +1263,7 @@
                     <div class="titulo">Propuestas de proyectos</div>            
                     <div class="busqueda"><input placeholder="Buscar" /></div>
                     <div class="agregar" id="edicion-erogacion" ><button clave_funcion="8" control="pagar-erogacion" onclick="IniciarRegistrarPro(true);" >Registrar nueva propuesta</button></div>                    
-                    <ul class="lista seleccionable" style="width:100%;">
+                    <ul class="lista seleccionable scrollable-2" style="width:100%;">
                         <li class="item" onclick="Mostrar('lista-erogacion','detalle-erogacion');">                             
                             <span class="t-1">Compra e instalación de juegos toboganes, para niños de hasta 12 años.</span> 
                             <span class="t-2">18-Enero-2019 7:00 pm</span>
