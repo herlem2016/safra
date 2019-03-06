@@ -9,7 +9,7 @@
     <style>
         html,body{margin:0px;font-family:Verdana;background-color:#808080;padding:0px;height:100%;overflow:hidden;}
         button{cursor:pointer;}
-        .login{height:100% !important;position:absolute;background-color:#808080;overflow:hidden;width:100%;}
+        .login{height:100% !important;position:absolute;background-color:#0094ff;overflow:hidden;width:100%;}
         .pantalla{border-bottom:1px solid #b6ff00;background-color:#eee;position:absolute;left:0px;top:34px;width:100%;}        
         .login fieldset{width:80%;border-radius:4px;margin:auto;border:2px solid #0094ff;background-color:#eee;display:block;}
         .login fieldset legend{width:30%;margin:auto;border:2px solid #0094ff;padding:5px;border-radius:4px;background-color:#fff;}
@@ -17,7 +17,7 @@
         .login fieldset input{width:60%;margin:auto;display:block;padding:10px;padding-left:50px;margin-bottom:25px;margin-top:25px;background-size:30px;background-image:url(img/Titan_Company_Logo.png);background-repeat:no-repeat;background-position-x:5px;background-position-y:center;border:1px solid #0094ff;border-radius:4px;}
         .login fieldset button{width:80%;margin:auto;display:block;padding:10px;margin-bottom:25px;margin-top:25px;}
         .login fieldset .olvido{float:right;margin:20px;font-size:10px;}
-        .login .copyright{display:block;width:80%;text-align:center;;margin:auto;font-size:10px;color:#333;margin-top:20px;font-weight:bold;}
+        .login .copyright{display:block;width:80%;text-align:center;;margin:auto;font-size:10px;color:#bbb;margin-top:20px;font-weight:bold;}
         .datos-usuario{padding:10px;font-size:12px;background-color:#000;color:#ddd;}
         .datos-usuario span{text-align:right;display:block;margin-right:40px;}
         .datos-usuario img{cursor:pointer;float:right;width:30px;border-radius:30px;margin-top:-22px;}        
@@ -279,7 +279,7 @@
         }
 
         window.onresize = function () {
-            EstablecerDimensiones();
+            //EstablecerDimensiones();
         }
 
         function IniciarApp() {
@@ -383,7 +383,7 @@
             <legend><img src="img/Titan_Company_Logo.png" /></legend>
             <input placeholder="Usuario" />
             <input placeholder="Contraseña" />
-            <button onclick="IniciarSesion();">Iniciar</button>
+            <button class="aceptar" onclick="IniciarSesion();">Iniciar</button>
         </fieldset>
         <span class="copyright">Copyright &#x24B8; 2018 Softronel,Inc.</span>
     </div>
