@@ -191,7 +191,7 @@
                     funcionesEnPantalla.btns[j++] = botones[i];
                 }
             }
-            $.post('http://localhost:61157/logic/controlador.aspx?op=ObtenerFuncionesHabilitadas&seccion=seguridad&funciones=' + funcionesEnPantalla.claves.join(","), function (xmlDoc) {
+            $.post('http://127.0.0.1:82/logic/controlador.aspx?op=ObtenerFuncionesHabilitadas&seccion=seguridad&funciones=' + funcionesEnPantalla.claves.join(","), function (xmlDoc) {
                 var funcionesRecibidas = xmlDoc.getElementsByTagName("Table");
                 for (var n = 0; n<funcionesRecibidas.length;n++){
                     for (var k = 0; k < funcionesEnPantalla.btns.length; k++){
