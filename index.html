@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <title>SAFRA</title>
     <link href="css/terceros.css" rel="stylesheet" />
 
@@ -190,12 +191,12 @@
                     funcionesEnPantalla.btns[j++] = botones[i];
                 }
             }
-            $.post('controlador.aspx?op=ObtenerFuncionesHabilitadas&seccion=seguridad&funciones=' + funcionesEnPantalla.claves.join(","), function (xmlDoc) {
+            $.post('http://localhost:61157/logic/controlador.aspx?op=ObtenerFuncionesHabilitadas&seccion=seguridad&funciones=' + funcionesEnPantalla.claves.join(","), function (xmlDoc) {
                 var funcionesRecibidas = xmlDoc.getElementsByTagName("Table");
                 for (var n = 0; n<funcionesRecibidas.length;n++){
                     for (var k = 0; k < funcionesEnPantalla.btns.length; k++){
                         if (funcionesEnPantalla.btns[k].getAttribute("clave_funcion") == GetValor(funcionesRecibidas[n], "clave_funcion")) {
-                            document.getElementById(funcionesEnPantalla.btns[k].getAttribute("control")).style.display = "block";
+                            try { document.getElementById(funcionesEnPantalla.btns[k].getAttribute("control")).style.display = "block"; } catch (e){ }
                         }
                     }
                 }
@@ -392,7 +393,7 @@
 
         <div class="opciones-usuario">
             <div class="datos-usuario"><img class="home" style="margin-top:-8px;" src="img/home.png"  onclick="PantallaMostrar('pp-home','section');" /><span>Lucely Janeth Rodriguez Almaguer</span><img src="img/user.png" onclick="ToogleOpcionesUsuario('opciones-usuario');" /></div>
-            <ul id="opciones-usuario" style="display:none;">
+            <ul id="opciones-usuario" style="display:none;position:absolute;z-index:99999;width:100%;margin:0px;">
                 <li>Usuario Residente</li>
                 <li><i>Calle Sofía No. 106, Mz-3, Lt-24, IB</i></li>
                 <li><b>Fraccionamiento Los Amores de Don Juan</b></li>
