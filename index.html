@@ -3,7 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src * 'self' 'unsafe-inline' data: gap: 'unsafe-eval';
+    style-src * 'self' 'unsafe-inline';
+    connect-src * ;
+    script-src * 'self' 'unsafe-inline';
+    media-src *">
     <title>SAFRA</title>
     <link href="css/terceros.css" rel="stylesheet" />
 
@@ -180,7 +185,7 @@
     <style id="css-sizes"></style>
     <script src="jquery-1.11.3.min.js"></script>
     <script>
-
+        $.support.cors = true;
         function MostrarOpcionesHabilitadas() {
             var funcionesEnPantalla = { btns: [], claves: [] };
             var botones = document.getElementsByTagName("button");
