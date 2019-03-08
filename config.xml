@@ -7,6 +7,7 @@
     <author email="info@softronel.com.mx" href="softronel.com.mx">
         Softronel Team
     </author>
+    <preference name='pgb-builder-version' value='2' />
     <resource-file src="google-services.json" target="platforms/android/app/google-services.json" />        
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="cordova-plugin-fcm" source="npm"/>
