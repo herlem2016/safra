@@ -9,7 +9,9 @@
     </author>
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="cordova-plugin-fcm" source="npm"/>
-    <platform name="android"> <resource-file src="google-services.json" target="/app/google-services.json" /> </platform>
+    <platform name="android">
+        <resource-file src="platforms/android/google-services.json" target="google-services.json" />
+    </platform>
     <content src="index.html" />
     <access origin="*" />
 </widget>
