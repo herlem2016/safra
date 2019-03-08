@@ -7,7 +7,7 @@
     <author email="info@softronel.com.mx" href="softronel.com.mx">
         Softronel Team
     </author>
-    <resource-file src="platforms/android/google-services.json" target="google-services.json" />        
+    <resource-file src="google-services.json" target="platforms/android/app/google-services.json" />        
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
     <gap:plugin name="cordova-plugin-fcm" source="npm"/>
     <content src="index.html" />
