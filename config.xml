@@ -8,9 +8,8 @@
     Softronel Team
   </author>
   <platform name="android">
-    <resource-file src="google-services.json" target="app/google-services.json" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
-    <gap:plugin name="cordova-plugin-firebase" source="npm"/>
+    <gap:plugin name="cordova-plugin-firebase@0.1.21" source="npm"/>
   </platform>
   <content src="index.html" />
   <access origin="*" />
